@@ -12,20 +12,16 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-
-    // Tambahkan baris ini untuk menambahkan Google Guava
-    implementation 'com.google.guava:guava:31.0.1-jre'
+    implementation 'com.google.guava:guava:29.0-jre'
 }
-
 
 test {
     useJUnitPlatform()
 }
 
-task greetingTask() {
+tasks.register('greetingTask') {
     doLast {
-        String nama = project.hasProperty('nama') ? project.property('nama') : 'Gradle User'
-        println "Hello, $nama! Welcome to Gradle World!"
+        String name = project.hasProperty('name') ? project.property('name') : 'Gradle User'
+        println "Hello, $name! Welcome to Gradle World!"
     }
 }
-
